@@ -14,8 +14,8 @@ module Day01
 
     def calories_by_elf(input)
       input
-        .chunk { |n| n == "" }
-        .filter_map { |blank, ary| ary.map(&:to_i) unless blank }
+        .chunk(&:empty?)
+        .filter_map { |spacer, ary| ary.map(&:to_i) unless spacer }
         .map(&:sum)
     end
   end
